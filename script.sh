@@ -4,4 +4,4 @@
 MYVAR=$1
 
 # Use the variable
-yt-dlp -f 'bestaudio[ext=m4a]' $MYVAR -o ./downloads/$2
+yt-dlp -f 'bestaudio[ext=m4a]' $MYVAR -o ./atif_aslam/$2
