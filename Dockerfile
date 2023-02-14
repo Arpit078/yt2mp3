@@ -8,6 +8,10 @@ RUN apt-get -y install nodejs ffmpeg python3 python3-pip
 
 RUN pip3 install yt-dlp 
 
+RUN chmod +x script.sh
+
+
+
 COPY package.json ./
 
 RUN npm install
@@ -15,6 +19,8 @@ RUN npm install
 COPY . .
 # key comes 1st in argument then id
 ENV YOUTUBE_API_KEY=AIzaSyAQxX1NjBQpOZfLuO-7qqwrtCUdpLL8tJg
+ENV PORT 10000
+EXPOSE 10000
 
 
 CMD ["npm" , "start"]

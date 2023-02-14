@@ -15,7 +15,7 @@ app.get('/q=:query', async function(req, res){
 	const url = `https://www.googleapis.com/youtube/v3/search?key=${process.env.YOUTUBE_API_KEY}&q=${req.params.query}%20lyrics&type=video&part=snippet`
 	axios.get(url).then((response)=>{
 		const videoID = response.data.items[0].id.videoId
-		const videoTitle = response.data.items[0].snippet.title.replace(/ /g,"_")
+		const videoTitle = response.data.items[0].snippet.title.replace("lyrics"," ")
 		execSync(`./script.sh 'https://www.youtube.com/watch?v=${videoID}' '${videoTitle}.m4a'`, (err, stdout, stderr) => {
 		  if (err) {
 			console.error(err);
@@ -28,7 +28,7 @@ app.get('/q=:query', async function(req, res){
 		};
 		 
 		var fileName = 'music.m4a';
-		res.sendFile(fileName, options, function (err) {
+		res.download(fileName, `${videoTitle}.m4a`, function (err) {
 			if (err) {
 				console.log(err);
 			} else {
@@ -38,6 +38,10 @@ app.get('/q=:query', async function(req, res){
 	})
 
 });
+
+app.get('/playlistURL=:playslistURL&spotifyToken=:spotifyToken',(req,res)=>{
+	res.json("api working")
+})
 
 app.listen(PORT, function(err){
 	if (err) console.log(err);
