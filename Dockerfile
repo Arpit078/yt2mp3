@@ -17,4 +17,4 @@ COPY . .
 ENV YOUTUBE_API_KEY=AIzaSyAQxX1NjBQpOZfLuO-7qqwrtCUdpLL8tJg
 
 
-CMD ["node" , "scrape.js"]
+CMD ["npm" , "start"]
