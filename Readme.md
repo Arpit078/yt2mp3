@@ -3,7 +3,9 @@
 docker pull arpit078/spotyt
 docker run 5000:10000 spotyt
 ```
-go to localhost:5000/q=anuv%20jain%20jukebox
+go to 'localhost:5000/q=anuv%20jain%20jukebox'
+
+
 downloads you a juke box for anuv jain :))
 
 
