@@ -8,7 +8,8 @@ RUN apt-get -y install nodejs ffmpeg python3 python3-pip
 
 RUN pip3 install yt-dlp 
 
-RUN chmod +x /app
+ADD script.sh /bin/script
+RUN chmod +x /bin/script
 
 
 
